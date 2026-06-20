@@ -1,0 +1,323 @@
+/* =====================================================
+   BATALLA DE TALENTOS — estilos propios
+   Paleta tipo "programa de teatro": tinta + papel + un
+   único acento dorado (luz de reflector).
+   ===================================================== */
+
+:root{
+  --ink:        #20232A;   /* fondo oscuro tipo telón */
+  --ink-soft:   #2B2F38;   /* tarjetas/superficies sobre tinta */
+  --paper:      #F6F4EF;   /* papel cálido */
+  --paper-soft: #ECE8DE;   /* papel un poco más oscuro */
+  --gold:       #B98A3D;   /* único acento: luz de reflector */
+  --slate:      #6B6F76;   /* texto secundario */
+  --rule:       #D8D3C5;   /* líneas finas sobre papel */
+  --rule-dark:  #3A3E47;   /* líneas finas sobre tinta */
+
+  --font-display: 'Fraunces', 'Georgia', serif;
+  --font-body: 'Source Sans 3', 'Segoe UI', sans-serif;
+}
+
+*{ box-sizing: border-box; }
+
+body{
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--paper);
+  margin: 0;
+}
+
+h1, h2, h3{
+  font-family: var(--font-display);
+  margin: 0;
+}
+
+p{ line-height: 1.7; }
+
+a{ text-decoration: none; }
+
+/* Foco visible para accesibilidad por teclado */
+a:focus-visible, button:focus-visible{
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation: none !important; transition: none !important; }
+}
+
+/* ============ ETIQUETAS / EYEBROWS ============ */
+.eyebrow{
+  font-family: var(--font-body);
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: .6rem;
+}
+.eyebrow--dark{ color: var(--gold); }
+
+/* ============ NAVBAR ============ */
+.program-nav{
+  background: rgba(32,35,42,.92);
+  backdrop-filter: blur(6px);
+  padding-top: .6rem;
+  padding-bottom: .6rem;
+  border-bottom: 1px solid var(--rule-dark);
+}
+.brand{
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--paper) !important;
+}
+.brand__mark{ color: var(--gold); }
+
+.program-nav .nav-link{
+  color: rgba(246,244,239,.78) !important;
+  font-size: .9rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  padding: .4rem .7rem;
+}
+.program-nav .nav-link:hover{ color: var(--paper) !important; }
+
+/* ============ HERO ============ */
+.hero{
+  position: relative;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 9.5rem 0 4.5rem;
+  overflow: hidden;
+}
+.hero__inner{ position: relative; z-index: 2; }
+
+.hero__title{
+  font-size: clamp(2.6rem, 7vw, 5rem);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -.01em;
+}
+.hero__title--gold{ color: var(--gold); font-style: italic; font-weight: 400; }
+
+.hero__subtitle{
+  margin-top: 1.3rem;
+  max-width: 30em;
+  font-size: 1.15rem;
+  color: rgba(246,244,239,.82);
+}
+
+.hero__meta{
+  margin-top: 2.2rem;
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  font-size: .82rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(246,244,239,.6);
+}
+.hero__date{ color: var(--gold); font-weight: 700; }
+.hero__rule{ width: 28px; height: 1px; background: var(--rule-dark); display: inline-block; }
+
+/* Halo de reflector sutil detrás del título */
+.hero__curtain{
+  position: absolute;
+  inset: -20% -10% auto auto;
+  width: 60%;
+  height: 140%;
+  background: radial-gradient(circle at 70% 20%, rgba(185,138,61,.18), transparent 60%);
+  z-index: 1;
+}
+
+/* ============ SECCIONES ============ */
+.section{ padding: 5.5rem 0; }
+.section--paper{ background: var(--paper); }
+.section--ink{ background: var(--ink); color: rgba(246,244,239,.9); }
+
+.section__title{
+  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+  font-weight: 500;
+  margin-bottom: 1.4rem;
+}
+.section__title--light{ color: var(--paper); }
+
+.section__intro{
+  color: var(--slate);
+  max-width: 40em;
+  margin-bottom: 2.5rem;
+}
+
+.lead-text{
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 1.3rem;
+}
+
+.section--paper p{ color: #3D4047; }
+.section--paper p:last-child{ margin-bottom: 0; }
+
+/* ============ MI EXPERIENCIA (cita) ============ */
+.quote-mark{
+  font-family: var(--font-display);
+  font-size: 4.5rem;
+  line-height: 1;
+  color: var(--gold);
+  display: block;
+}
+.quote-text{
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--paper);
+}
+.quote-credit{
+  margin-top: 1.2rem;
+  font-size: .85rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ============ GALERÍA — TARJETAS TIPO BOLETA ============ */
+.program-card{
+  position: relative;
+  background: var(--paper-soft);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 2.2rem 1.3rem 1.6rem;
+  text-align: center;
+  height: 100%;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.program-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px -16px rgba(32,35,42,.35);
+}
+
+/* "perforaciones" de boleta a los lados */
+.program-card__notch{
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.program-card__notch--left{ left: -9px; }
+.program-card__notch--right{ right: -9px; }
+
+.program-card__art{
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 1.1rem;
+  color: var(--gold);
+}
+.program-card__art svg{
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.program-card__act{
+  display: block;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: .35rem;
+}
+.program-card__title{
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+/* ============ GALERÍA DE FOTOS ============ */
+.photo-grid__eyebrow{ margin-top: 3.5rem; }
+
+.photo-card{
+  position: relative;
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 6px;
+  border: 1px solid var(--rule);
+  background: var(--paper-soft);
+}
+.photo-card img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(35%) contrast(1.02);
+  transition: filter .35s ease, transform .5s ease;
+}
+.photo-card:hover img{
+  filter: grayscale(0%);
+  transform: scale(1.04);
+}
+/* marco dorado sutil al pasar el mouse, como un reflector */
+.photo-card::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  transition: border-color .3s ease;
+  pointer-events: none;
+}
+.photo-card:hover::after{ border-color: var(--gold); }
+
+/* ============ GLOSARIO ============ */
+.glossary dt{
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--gold);
+  margin-bottom: .4rem;
+  padding-bottom: .6rem;
+  border-bottom: 1px solid var(--rule-dark);
+}
+.glossary dd{
+  margin: 0;
+  color: rgba(246,244,239,.75);
+  font-size: .98rem;
+}
+
+/* ============ FOOTER ============ */
+.footer{
+  background: var(--ink);
+  border-top: 1px solid var(--rule-dark);
+  padding: 2.2rem 0;
+}
+.footer__inner{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+  text-align: center;
+}
+.brand--footer{ color: var(--paper); }
+.footer__meta{
+  margin: 0;
+  font-size: .82rem;
+  color: var(--slate);
+}
+
+@media (min-width: 768px){
+  .footer__inner{ flex-direction: row; justify-content: space-between; text-align: left; }
+}
